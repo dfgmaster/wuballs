@@ -282,6 +282,7 @@ function init() {
     // put three balls on the board
     for (var x=0; x<20; x++) placeBall();
 
+    UI.init();
     UI.updateBoard();
 }
 
@@ -344,7 +345,30 @@ var UI = {
     debugInputElId : "debugInput",
     debugSubmitElId : "debugSubmit",
     debugMessageElId : "debugMessage",
-    debugMode : true    
+    debugMode : false    
+}
+UI.init = function() {
+	var boardEl = document.getElementById("board");
+	
+    var c = 0; // odd/even cell counter
+    for (var i = 0; i < 9; i++) {
+		rowEl = boardEl.insertRow();
+	    for (var j = 0; j < 9; j++) {    
+            var cellEl = rowEl.insertCell();
+            cellEl.className = (c++ % 2 == 1) ? "cell-light" : "cell-dark";
+            cellEl.style.width = "65px";
+            cellEl.style.height = "65px";
+        }
+	}
+	
+
+    this.debugMode = (window.location.href.indexOf("debug=true") != -1);
+	if (this.debugMode) {
+        var debugSectionEl = document.getElementById(UI.debugSectionElId);
+        if (debugSectionEl != null) {
+	        debugSectionEl.style.display = "block";
+        }		
+	}
 }
 UI.errorLog = function(msg) {
     if (this.debugMode) {

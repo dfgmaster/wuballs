@@ -3,10 +3,43 @@
 	<script src="seedrandom.js"></script>
 	<script src="core.js"></script>
 	<style type="text/css">	
+	  body { 
+		background:#ffffff url('images/background-1280.jpg') no-repeat 50% 50%;
+		margin:0px;		
+	  }
+		
+	  #board {
+		table-layout: fixed;
+		border: 1px solid #666666;  /* #D4E0EE */
+		border-collapse: collapse;
+
+	    width:587px; /* 9 (cells) x 65 (pixels per cell) + 2 (1 pixel border) */
+	    height:587px;
+      }
+      .cell-light {
+	    background:#ffffff;
+      }
+      .cell-dark {
+	    background:#e8edff;	
+      }
+
+      #content_box {        
+        margin:10px auto;
+        width:800px;
+	  }
+
+	  #debugSection {
+	    display:none;
+	    background:#ffffff;	
+	  }
 	</style>
 </head>
 <body onload="init()">
-<h1>Wuballs</h1>
+	
+<div id="content_box">
+<table id="board" cellpadding=0 cellspacing=0>
+</table>
+</div>
 
 <div id="debugSection">
 <pre id="debugBoard"></pre>
