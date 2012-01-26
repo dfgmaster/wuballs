@@ -1,51 +1,33 @@
 <html>
 <head>
-	<script src="seedrandom.js"></script>
-	<script src="core.js"></script>
-	<style type="text/css">	
-	  body { 
-		background:#ffffff url('images/background-1280.jpg') no-repeat 50% 50%;
-		margin:0px;		
-	  }
-		
-	  #board {
-		table-layout: fixed;
-		border: 1px solid #666666;  /* #D4E0EE */
-		border-collapse: collapse;
-
-	    width:587px; /* 9 (cells) x 65 (pixels per cell) + 2 (1 pixel border) */
-	    height:587px;
-      }
-      .cell-light {
-	    background:#ffffff;
-      }
-      .cell-dark {
-	    background:#e8edff;	
-      }
-
-      #content_box {        
-        margin:10px auto;
-        width:800px;
-	  }
-
-	  #debugSection {
-	    display:none;
-	    background:#ffffff;	
-	  }
-	</style>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="Vince Wu" content="Vince Wu, vince.wu@gmail.com">
+  <meta name="description" CONTENT="Wuballs - A twist on the classic computer puzzle game Color Lines.">
+    
+  <title>Wuballs</title>
+  <script src="seedrandom.js"></script>
+  <script src="core.js"></script>
+  <link rel="stylesheet" type="text/css" href="game.css" />
 </head>
-<body onload="init()">
-	
-<div id="content_box">
-<table id="board" cellpadding=0 cellspacing=0>
-</table>
+<body onload="Game.init()">
+
+<div id="content_box">  
+  <div id="controls_box">
+    <div id="score">0</div>
+    <div id="nextBallsTitle">Next three:</div>
+    <div id="nextBalls"></div>
+    <input id="undoButton" type="button" value="Undo last move">
+  </div>
+  <table id="board" cellpadding=0 cellspacing=0></table>
 </div>
+
 
 <div id="debugSection">
-<pre id="debugBoard"></pre>
-<input id="debugInput" placeholder="{x1,y1} {x2,y2}" autofocus onkeypress="UI.handleDebugInput(event)">
-<input id="debugSubmit" type="button" value="Move" onclick="UI.handleDebugMove()">
-<div id="debugMessage" style="color:#ff3333;font-size:80%;"></div>
+  <pre id="debugBoard"></pre>
+  <input id="debugInput" placeholder="{x1,y1} {x2,y2}" autofocus onkeypress="UI.handleDebugInput(event)">
+  <input id="debugSubmit" type="button" value="Move" onclick="UI.handleDebugMove()">
+  <div id="debugMessage" style="color:#ff3333;font-size:80%;"></div>
 </div>
+
 </body>
 </html>

@@ -1,0 +1,73 @@
+body { 
+  background:#ffffff url('images/background-1280.jpg') no-repeat 50% 50%;
+  font-family: arial, sans-serif;
+  font-size:120%;
+  /* center align horizontally */
+  margin:0px auto;
+
+  /* setup vertical alignment on window */
+  display:table;      
+  height:100%;
+}
+
+#content_box { 
+  width:850px; /* 263px for the scoreboard */
+  height:587px; /* see #board */
+     
+  /* vertical elements inside the box */
+  display: table-cell; 
+  vertical-align: middle;
+}
+    
+#board {
+  border: 1px solid #666666; 
+
+  /* all cells on the board should be fixed size */
+  table-layout: fixed; 
+  border-collapse: collapse;
+
+  /* 9 (cells) x 65 (pixels per cell) + 2 (1 pixel border) */
+  width:587px; 
+  height:587px;
+}
+
+#controls_box {
+  float:right;
+  margin-top:170px; /* for center valign TODO: fix this hardcoded value */
+  background:#f7f7f7;
+  border:1px solid #666666;
+  border-radius:10px;
+  padding:10px; 
+}
+
+#score {
+  margin-top:10px;
+  text-align:center;
+  color:#ffb600;
+  width:100%;
+  font-family:Impact;
+  font-size:300%;
+}
+
+#nextBallsTitle {
+  margin-top:20px;
+  font-weight:bold;
+}
+
+#undoButton {
+  margin-top:10px;
+  font-size:120%;
+}
+
+/* checkered board UI */
+.cell-light {
+  background:#ffffff;
+}
+.cell-dark {
+  background:#e8edff;   
+}
+
+#debugSection {
+  display:none;
+  background:#ffffff;   
+}
