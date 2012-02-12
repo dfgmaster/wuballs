@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableLayout
+        android:id="@+id/board"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"  >
+    </TableLayout>
+    
+    <LinearLayout 
+        android:orientation="horizontal"
+        android:layout_below="@id/board"
+        android:layout_alignParentBottom="true"        
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp" >
+        
+            <TextView android:id="@+id/score"  
+              android:layout_width="wrap_content"
+              android:layout_height="match_parent"
+              android:typeface="monospace"  
+              android:textSize="25sp"
+              android:textColor="#ffb600"   
+              android:gravity="center"
+              android:text="000" 
+              
+              android:layout_weight="1" />
+        
+    </LinearLayout>
+    
+</RelativeLayout>
