@@ -247,11 +247,11 @@ GameBoard.connectFive = function(cell) {
     
   // check diagonal positive slope
   var dpList = [];
-  for (var i=cell.i+1,j=cell.j-1; i<GameBoard.SIZE && j>=0; i++,j--) {
+  for (i=cell.i+1,j=cell.j-1; i<GameBoard.SIZE && j>=0; i++,j--) {
     if (ball.equals(GameBoard._BOARD[i][j])) dpList.push(BoardCell.newInstance(i,j));
     else break;
   }
-  for (var i=cell.i-1,j=cell.j+1; i>=0 && j<GameBoard.SIZE; i--,j++) {
+  for (i=cell.i-1,j=cell.j+1; i>=0 && j<GameBoard.SIZE; i--,j++) {
     if (ball.equals(GameBoard._BOARD[i][j])) dpList.push(BoardCell.newInstance(i,j));
     else break;
   }
@@ -282,6 +282,7 @@ BoardCell.toString = function() {
   return msgBuf.join("");
 }
 /** @return boolean - whether the game piece is a joker */
+// TODO: fix comments
 BoardCell.withinBounds = function() {
   return (this.i>=0 && this.j>=0 && this.i<GameBoard.SIZE && this.j<GameBoard.SIZE);
 }
