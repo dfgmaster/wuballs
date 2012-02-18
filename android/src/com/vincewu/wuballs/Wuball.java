@@ -4,6 +4,10 @@ class Wuball {
     private static int jokerType = -1; // type representing a joker piece  
 	private int type;
 
+	public void setJokerType() {
+		this.type = jokerType;
+	}
+	
 	public void setType(int type) {
 		this.type = type;  // TODO: check bounds?
 	}
@@ -21,7 +25,8 @@ class Wuball {
 		if (this == o) return true;
 		if((o == null) || (o.getClass() != this.getClass())) return false; 
 		Wuball ball = (Wuball)o;  
-	    return (ball.type == this.type);
+		// Joker ball matches any ball
+	    return (ball.type == this.type || ball.isJokerBall() || this.isJokerBall()); 
 	}
 	
 	public int hashCode() {

@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="hello">Hello World, Vboy!</string>
     <string name="app_name">Wuballs</string>
+    <string name="next_ball">Next Ball</string>
+    <string name="zero">0</string>
 
+    <string name="game_over">Game over! Restart&#8230;</string>
+    <string name="ex_no_element">Touch again. Couldn\'t detect your touch.</string>
+    <string name="ex_no_ball">Pick a piece to move</string>
+    <string name="ex_bad_move">You can\'t move there</string>
+    <string name="ex_out_of_bounds">Move commands are out of bounds</string>
+    
 </resources>
