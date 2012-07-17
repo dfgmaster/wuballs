@@ -80,19 +80,33 @@ class GameBoard {
      * Will update game board. 
      * @param start
      * @param end
-     * @return true if this was a valid move
+     * @return route if this was a valid move
      */
-    public boolean moveBall(GameBoard.BoardCell start, GameBoard.BoardCell end)
+    public List<GameBoard.BoardCell> moveBall(GameBoard.BoardCell start, GameBoard.BoardCell end)
             throws IllegalMoveException {
         // check if this is a valid move
         short[][] distanceMap = findRoute(start, end);
         if (distanceMap[end.i][end.j] > 0) { // java initializes array to 0
             // a valid move! move the game piece
             board[end.i][end.j] = board[start.i][start.j];
+            board[end.i][end.j].setMoved();
             board[start.i][start.j] = null;
-            return true;
+            
+            
+            LinkedList<GameBoard.BoardCell> path = new LinkedList<GameBoard.BoardCell>();
+            GameBoard.BoardCell nc = end;
+            short distance = distanceMap[end.i][end.j];
+            while (distance > 1) {
+            	nc = (nc.i-1 >= 0 && distanceMap[nc.i-1][nc.j] == (distance-1)) ? new GameBoard.BoardCell(nc.i-1, nc.j) :
+            		 (nc.j+1 < size && distanceMap[nc.i][nc.j+1] == (distance-1)) ? new GameBoard.BoardCell(nc.i, nc.j+1) :
+                	 (nc.i+1 < size && distanceMap[nc.i+1][nc.j] == (distance-1)) ? new GameBoard.BoardCell(nc.i+1, nc.j) :
+                     new GameBoard.BoardCell(nc.i, nc.j-1);
+                path.add(0, nc);
+                distance--;
+            }
+            return path;
         }
-        return false;
+        return null;
     }
 
     /**
@@ -160,7 +174,7 @@ class GameBoard {
                 // loop)
                 if (distanceMap[cell.i][cell.j] == 0) { // java initializes
                                                         // arrays to 0
-                    todoList.push(cell);
+                    todoList.add(cell);
                     distanceMap[cell.i][cell.j] = ++lastDistance;
                 }
             }

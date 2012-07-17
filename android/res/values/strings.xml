@@ -3,6 +3,7 @@
     <string name="hello">Hello World, Vboy!</string>
     <string name="app_name">Wuballs</string>
     <string name="next_ball">Next Ball</string>
+    <string name="background_image">Background image</string>
     <string name="zero">0</string>
 
     <string name="game_over">Game over! Restart&#8230;</string>

@@ -3,6 +3,7 @@ package com.vincewu.wuballs;
 class Wuball {
     private static int jokerType = -1; // type representing a joker piece  
 	private int type;
+	private boolean newBall = true;
 
 	public void setJokerType() {
 		this.type = jokerType;
@@ -21,6 +22,20 @@ class Wuball {
     	return this.type == jokerType;
     }
     
+    /**
+     * @return whether Wuball has been moved
+     */
+    public boolean hasMoved() {
+        return !newBall;        
+    }
+
+    /**
+     * @return whether Wuball has moved
+     */
+    public void setMoved() {
+        this.newBall = false;        
+    }
+
 	public boolean equals(Object o) {
 		if (this == o) return true;
 		if((o == null) || (o.getClass() != this.getClass())) return false; 

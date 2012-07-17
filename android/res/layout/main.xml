@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/body"
+    android:background="@drawable/bgrepeat"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
-
+    
     <!--  a square grid: height will match computed screen width -->
     <TableLayout
         android:id="@+id/board"
@@ -13,7 +14,8 @@
 
     <!-- Container takes up remaining screen height. 
          Left: score, Right: next 3 balls -->    
-    <LinearLayout
+    <LinearLayout 
+        android:id="@+id/gameStateLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -42,7 +44,7 @@
             android:gravity="center"
             android:paddingRight="3dp"
             android:scaleType="center"
-            android:src="@drawable/spacer" />
+            android:src="@drawable/spacer_48" />
 
         <ImageView
             android:id="@+id/nextBall2"
@@ -52,7 +54,7 @@
             android:gravity="center"
             android:paddingRight="3dp"
             android:scaleType="center"
-            android:src="@drawable/spacer" />
+            android:src="@drawable/spacer_48" />
 
         <ImageView
             android:id="@+id/nextBall3"
@@ -62,8 +64,8 @@
             android:gravity="center"
             android:paddingRight="3dp"
             android:scaleType="center"
-            android:src="@drawable/spacer" />
+            android:src="@drawable/spacer_48" />
 		/>
     </LinearLayout>
-
+       
 </RelativeLayout>
